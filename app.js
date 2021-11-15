@@ -11,7 +11,7 @@ connection.on('error', () => console.log('Error.....!!!'))
 app.use(express.json({
     extended: false
 })) //parse incoming request body in JSON format.
-
+app.use('/', require('./app/routes/get_longUrl'))
 app.use('/api/url', require('./app/routes/post_shortUrl'))
 
 
