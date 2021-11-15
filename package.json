@@ -2,7 +2,7 @@
   "name": "slink_backend",
   "version": "1.0.0",
   "description": "A backend Slink URL shortner",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,12 +12,5 @@
     "MongoDB"
   ],
   "author": "Samia",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^6.0.12",
-    "nodemon": "^2.0.15",
-    "shortid": "^2.2.16",
-    "valid-url": "^1.0.9"
-  }
+  "license": "ISC"
 }
