@@ -12,8 +12,7 @@
     "MongoDB"
   ],
   "author": "Samia",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^10.0.0"
-  }
+  "license": "ISC"
 }
+
+
