@@ -1,12 +1,15 @@
-//Exposing Mongo DB URI from env file
-
+require('dotenv').config();
 const mongoose = require('mongoose')
-require('dotenv').config()
-
-mongoose.connect(ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 
+//Set up default mongoose connection
+mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
+
+//Get the default connection
 const db = mongoose.connection;
 
+//Bind connection to error event (to get notification of connection errors)
+//db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+// export the connection object
 module.exports = db

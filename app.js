@@ -2,8 +2,14 @@ const express = require("express")
 
 const app = express()
 
-app.listen(3000,() => console.log("Server listening at port 3000"));
+//const mongoose = require('mongoose')
 
-app.get("/", (req, res) => {
-    res.send("Hello World");
-});
+// Database config
+const connection = require('./app/infrastructure/configuration/db.config')
+connection.once('open', () => console.log('MongoDb Connected......'))
+connection.on('error', () => console.log('Error.....!!!'))
+
+
+//Listen for incoming requests
+const PORT = process.env.PORT || 3000
+app.listen(PORT, console.log(`server started, listening PORT ${PORT}`))
