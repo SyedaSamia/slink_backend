@@ -11,10 +11,11 @@ connection.on('error', () => console.log('Error.....!!!'))
 app.use(express.json({
     extended: false
 })) //parse incoming request body in JSON format.
-app.use('/', require('./app/routes/get_longUrl'))
-app.use('/api/url', require('./app/routes/post_shortUrl'))
+app.use('/', require('./app/routes/get-longurl'))
+app.use('/api/url', require('./app/routes/post-shorturl'))
 
 
 // Listen for incoming requests
 const PORT = process.env.PORT || 3000
 app.listen(PORT, console.log(`server started, listening PORT ${PORT}`))
+
