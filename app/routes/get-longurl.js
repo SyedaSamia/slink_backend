@@ -16,16 +16,17 @@ router.get('/:code', async (req, res) => {
             // count the visit of that shortUrl
             url.shortUrlRedirCount++
             await url.save()
-            return res.redirect(url.longUrl)
+            res.redirect(url.longUrl)
 
         }
         else {
-            return res.status(404).json('No Url Found!')
+            res.status(404).json('No Url Found!')
         }
 
     }
     catch (err) {
         res.status(500).json('Server Error!')
+        res.send(error.message);
 
     }
 })

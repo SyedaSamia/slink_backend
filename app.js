@@ -1,4 +1,4 @@
-const cors = require('cors');
+//const cors = require('cors');
 
 const express = require("express")
 const app = express()
@@ -9,6 +9,7 @@ connection.once('open', () => console.log('MongoDb Connected......'))
 connection.on('error', () => console.log('Error.....!!!'))
 
 
+
 //routes Config
 app.use(express.json({
     extended: false
@@ -16,7 +17,8 @@ app.use(express.json({
 app.use('/', require('./app/routes/get-longurl'))
 app.use('/api/url', require('./app/routes/post-shorturl'))
 
-app.use(cors());
+//app.use(cors());
+
 
 // Listen for incoming requests
 const PORT = process.env.PORT || 3000
