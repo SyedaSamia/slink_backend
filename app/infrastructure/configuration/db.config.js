@@ -3,7 +3,9 @@ const mongoose = require('mongoose')
 
 
 //Set up default mongoose connection
-mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(res => console.log("Connected to DB"))
+.catch(err => console.log(err));
 
 //Get the default connection
 const db = mongoose.connection.once('open', function(){
