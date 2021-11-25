@@ -7,6 +7,7 @@ mongoose.connect("mongodb+srv://simchang0:0012@cluster0.e9on7.mongodb.net/url?re
 .then(res => console.log("Connected to DB"))
 .catch(err => console.log(err));
 
+
 //Get the default connection
 const db = mongoose.connection.once('open', function(){
     console.log('Conection has been made!');
