@@ -1,3 +1,5 @@
+const cors = require('cors');
+
 const express = require("express")
 const app = express()
 
@@ -14,8 +16,10 @@ app.use(express.json({
 app.use('/', require('./app/routes/get-longurl'))
 app.use('/api/url', require('./app/routes/post-shorturl'))
 
+app.use(cors());
 
 // Listen for incoming requests
 const PORT = process.env.PORT || 3000
+//const PORT = 3000
 app.listen(PORT, console.log(`server started, listening PORT ${PORT}`))
 

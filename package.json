@@ -1,9 +1,10 @@
 {
   "name": "slink_backend",
   "version": "1.0.0",
-  "description": "A backend Slink URL shortner",
+  "description": "A backend for Slink URL shortner",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -11,8 +12,21 @@
     "Nodejs",
     "MongoDB"
   ],
-  "author": "Samia",
-  "license": "ISC"
+  "author": "Sayeda-Samia-Nasrin",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "hashids": "^2.2.9",
+    "mongoose": "^6.0.12",
+    "shortid": "^2.2.16",
+    "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^27.3.1",
+    "superagent": "^6.1.0",
+    "supertest": "^6.1.6"
+  }
 }
-
-
