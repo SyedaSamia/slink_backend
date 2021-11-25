@@ -34,6 +34,7 @@ router.post('/shorten', async(req, res) => {
     //!const urlId = shortid.generate()
 
     const urlId = shortIdByHashid.generateUrlId()
+    console.log("XYZ " + urlId)
 
 
     // check the validity of long url
@@ -72,7 +73,7 @@ router.post('/shorten', async(req, res) => {
         }
         catch (err) {
             console.log(err)
-            console.log(response)
+            console.log(res)
             res.status(500).json('Server Error')
         }
 
