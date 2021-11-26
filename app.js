@@ -1,5 +1,5 @@
-//const cors = require('cors');
-
+const cors = require('cors');
+const bodyParser = require("body-parser");
 const express = require("express")
 const app = express()
 
@@ -8,6 +8,20 @@ const connection = require('./app/infrastructure/configuration/db.config')
 connection.once('open', () => console.log('MongoDb Connected......'))
 connection.on('error', () => console.log('Error.....!!!'))
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://slink-url-shortener.netlify.app');
+    next();
+  });
+
+
+//app.use(cors());
+const corsOptions = {
+    origin: 'https://slink-url-shortener.netlify.app',
+    optionsSuccessStatus: 200
+  }
+app.use(cors(corsOptions))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 //routes Config
@@ -17,7 +31,6 @@ app.use(express.json({
 app.use('/', require('./app/routes/get-longurl'))
 app.use('/api/url', require('./app/routes/post-shorturl'))
 
-//app.use(cors());
 
 
 // Listen for incoming requests
