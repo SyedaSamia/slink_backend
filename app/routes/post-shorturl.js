@@ -27,6 +27,7 @@ router.post('/shorten', async(req, res) => {
 
     // check the validity of baseUrl using the validUrl.isUri method
     if (!validUrl.isUri(baseUrl)) {
+        console.log('XYZ')
         return res.status(401).json('Invalid base URL')
     }
 
@@ -69,14 +70,14 @@ router.post('/shorten', async(req, res) => {
             }
         }
         catch (err) {
-            console.log(err)
+            console.log("XYZ" + err)
             console.log(res)
             res.status(500).json('Server Error')
         }
 
     } else {
         res.status(401).json('Invalid LongUrl')
-        console.log(err)
+        console.log("XYz" + err)
         res.send(error.message);
 
     }

@@ -11,8 +11,6 @@ router.get('/:code', async (req, res) => {
             urlId: req.params.code
         })
         if (url){
-            console.log('XYZ' + url)
-
             // count the visit of that shortUrl
             url.shortUrlRedirCount++
             await url.save()
