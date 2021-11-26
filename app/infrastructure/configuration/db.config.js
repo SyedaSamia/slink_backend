@@ -6,8 +6,6 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.ATLAS_URI,
 {useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
-      useFindAndModify: false,
 })
 .then(res => console.log("Connected to DB"))
 .catch(err => console.log(err));
