@@ -13,7 +13,7 @@ const Url = require('../domain/models/model')
 //const shortid = require('shortid')
 const shortIdByHashid = require('../domain/url-shortener')
 
-const baseUrl = 'http:localhost:3000'
+const baseUrl = 'https://slink-url-shortener.netlify.app'
 
 
 
@@ -31,10 +31,7 @@ router.post('/shorten', async(req, res) => {
     }
 
     // if valid, create the urlId
-    //!const urlId = shortid.generate()
-
     const urlId = shortIdByHashid.generateUrlId()
-    console.log("XYZ " + urlId)
 
 
     // check the validity of long url

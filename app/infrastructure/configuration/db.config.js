@@ -3,7 +3,12 @@ const mongoose = require('mongoose')
 
 
 //Set up default mongoose connection
-mongoose.connect("mongodb+srv://simchang0:0012@cluster0.e9on7.mongodb.net/url?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect("mongodb+srv://simchang0:0012@cluster0.e9on7.mongodb.net/url?retryWrites=true&w=majority",
+{useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+      useFindAndModify: false,
+})
 .then(res => console.log("Connected to DB"))
 .catch(err => console.log(err));
 
