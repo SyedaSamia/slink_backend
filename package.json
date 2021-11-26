@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "A backend for Slink URL shortner",
   "main": "app.js",
+
   "scripts": {
     "start": "node app.js",
     "start:dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ng build",
-    "heroku-postbuild": "ng build --prod"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "Express",
@@ -33,6 +32,5 @@
     "nodemon": "^2.0.15",
     "superagent": "^6.1.0",
     "supertest": "^6.1.6"
-  },
-  "heroku-run-build-script": true
+  }
 }
