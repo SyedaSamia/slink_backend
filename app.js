@@ -9,6 +9,13 @@ const connection = require('./app/infrastructure/configuration/db.config')
 connection.once('open', () => console.log('MongoDb Connected......'))
 connection.on('error', () => console.log('Error.....!!!'))
 
+if (process.env.NODE_ENV === "production"){
+    app.use(express.static("build"));
+    app.get("*", (req, res) => {
+      res.sendFile(path.resolve(__dirname,  "build", "index.html"));
+    });
+  }
+
 // app.use((req, res, next) => {
 //     res.header('Access-Control-Allow-Origin', '*');
 //     res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');

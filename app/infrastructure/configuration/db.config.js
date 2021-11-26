@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 
 //Set up default mongoose connection
-mongoose.connect("mongodb+srv://simchang0:0012@cluster0.e9on7.mongodb.net/url?retryWrites=true&w=majority",
+mongoose.connect(process.env.ATLAS_URI,
 {useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
