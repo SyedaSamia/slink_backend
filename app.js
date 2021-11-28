@@ -48,7 +48,7 @@ app.use(bodyParser.json());
 app.use(express.json({
     extended: false
 })) //parse incoming request body in JSON format.
-app.use('/', require('./app/routes/get-longurl'))
+app.use('/*', require('./app/routes/get-longurl'))
 app.use('/api/url', require('./app/routes/post-shorturl'))
 
 
