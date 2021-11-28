@@ -8,7 +8,7 @@ const Url = require('../domain/models/model')
 
 // app.use('/*', router)
 
-router.get('/:code', async (req, res) => {
+router.get('/:shortUrlId', async (req, res) => {
     console.log("XYZ1" )
     try{
         // find a document match to the code in req.params.code
