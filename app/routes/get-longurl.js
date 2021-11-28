@@ -10,7 +10,7 @@ router.get('/:code', async (req, res) => {
         const url = await Url.findOne({
             urlId: req.params.code
         })
-        console.log(url)
+        console.log("XYZ" + url)
         if (url){
             // count the visit of that shortUrl
             url.shortUrlRedirCount++
