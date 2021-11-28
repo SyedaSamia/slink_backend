@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === 'production') {
 
 //app.use(cors());
 const corsOptions = {
-    origin: 'https://slink-url-shortener.netlify.app',
+    origin: 'https://s-link.netlify.app',
     optionsSuccessStatus: 200
   }
 app.use(cors(corsOptions))
