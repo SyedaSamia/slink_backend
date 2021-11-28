@@ -13,7 +13,7 @@ const Url = require('../domain/models/model')
 //const shortid = require('shortid')
 const shortIdByHashid = require('../domain/url-shortener')
 
-const baseUrl = 'https://slink-url-shortener.netlify.app'
+const baseUrl = 'https://s-link'
 
 
 
