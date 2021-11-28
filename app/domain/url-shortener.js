@@ -1,5 +1,5 @@
 const Hashids = require('hashids/cjs')
-const hashids = new Hashids("das ist mein salz", 7)
+const hashids = new Hashids("das ist mein salz", 8)
 
 
 function generateUrlId(){
