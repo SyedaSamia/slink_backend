@@ -4,13 +4,13 @@ const router = express.Router()
 
 const Url = require('../domain/models/model')
 
-router.get('/:code', async (req, res) => {
+router.get('/:urlId', async (req, res) => {
     console.log("XYZ1" )
     try{
         // find a document match to the code in req.params.code
         console.log("XYZ2" + url)
         const url = await Url.findOne({
-            urlId: req.params.code
+            urlId: req.params.urlId
         })
         console.log("XYZ3" + url)
         if (url){
