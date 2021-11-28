@@ -30,7 +30,7 @@ router.get('/:shortUrl', async (req, res) => {
 
     }
     catch (err) {
-        console.log("XYZ5" + url)
+        console.log("XYZ5" + err.message)
         res.status(500).json('Server Error!')
         res.send(error.message);
 
