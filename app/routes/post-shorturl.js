@@ -13,7 +13,7 @@ const Url = require('../domain/models/model')
 //const shortid = require('shortid')
 const shortIdByHashid = require('../domain/url-shortener')
 
-const baseUrl = 'https://s-link'
+const baseUrl = 'https://slnk-app.herokuapp.com'
 
 
 
