@@ -4,9 +4,9 @@ const router = express.Router()
 
 const Url = require('../domain/models/model')
 
-const app = express()
+// const app = express()
 
-app.use('/*', router)
+// app.use('/*', router)
 
 router.get('/:code', async (req, res) => {
     console.log("XYZ1" )
