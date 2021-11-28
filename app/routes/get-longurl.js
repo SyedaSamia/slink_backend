@@ -12,12 +12,13 @@ router.get('/:shortUrl', async (req, res) => {
     console.log("XYZ1" )
     try{
         // find a document match to the code in req.params.code
-        console.log("XYZ2" + url)
+        console.log("XYZ2")
         const url = await Url.findOne({
             urlId: req.params.shortUrl
         })
-        console.log("XYZ3" + url)
+
         if (url){
+            console.log("XYZ3" )
             // count the visit of that shortUrl
             url.shortUrlRedirCount++
             await url.save()
