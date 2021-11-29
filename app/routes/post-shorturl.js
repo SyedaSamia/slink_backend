@@ -44,7 +44,6 @@ router.post('/shorten', async(req, res) => {
                 longUrl
             })
 
-
             // if longUrl already exists then return the response,
             // also count the entry of that url
             if(url) {
