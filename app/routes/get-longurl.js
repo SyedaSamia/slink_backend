@@ -14,7 +14,7 @@ router.get('/:shortUrl', async (req, res) => {
 
         if (url){
             // count the visit of that shortUrl
-            url.shortUrlRedirCount++
+            url.shortUrlRedirectCount++
             await url.save()
             return res.redirect(url.longUrl)
         }
