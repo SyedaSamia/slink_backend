@@ -3,7 +3,7 @@ const hashids = new Hashids("this is my salt", 7, "abcdefghijklmnopqrstuvwxyzABC
 
 
 function generateUrlId(){
-    const urlId = hashids.encode(Date.now())
+    const urlId = hashids.encode(parseInt(Date.now()/1000))
     return urlId;
 }
 
