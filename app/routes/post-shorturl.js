@@ -56,11 +56,6 @@ router.post('/shorten', async(req, res) => {
             }
 
 
-            // check whether the longUrl is already stored in database
-            // let url = await Url.findOne({
-            //     longUrl
-            // })
-
             // if longUrl already exists then return the response,
             // also count the entry of that url
             if(url) {
