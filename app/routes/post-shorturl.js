@@ -16,10 +16,8 @@ const shortIdByHashid = require('../domain/url-shortener')
 const baseUrl = 'https://s-lnk.herokuapp.com'
 
 const stripTrailingSlash = (str) => {
-    return str.endsWith('/') ?
-        str.slice(0, -1) :
-        str;
-};
+    return str.endsWith('/') ? str.slice(0, -1) : str;
+}
 
 router.post('/shorten', async(req, res) => {
 
@@ -42,7 +40,7 @@ router.post('/shorten', async(req, res) => {
     if(validUrl.isUri(longUrl)) {
         console.log('Posting shorturl to db')
         try {
-
+            longUrl = stripTrailingSlash(longUrl)
             // check whether the longUrl is already stored in database
             let url = await Url.findOne({
                 longUrl
@@ -60,7 +58,7 @@ router.post('/shorten', async(req, res) => {
 
                 // create the short url
                 const shortUrl = baseUrl + '/' + urlId
-                longUrl = stripTrailingSlash(longUrl)
+
 
                 // invoking the Url model (from model.js) and saving to the DB
                 url = new Url({
