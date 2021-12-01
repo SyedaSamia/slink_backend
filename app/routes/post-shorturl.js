@@ -37,11 +37,8 @@ router.post('/shorten', async(req, res) => {
     // check the validity of long url
     if(validUrl.isUri(longUrl)) {
         console.log('Posting shorturl to db')
+
         try {
-
-            // let constLongUrl = longUrl
-
-            // let baseLongUrl = longUrl.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
 
              // check whether the longUrl is already stored in database
             let url = await Url.findOne({
@@ -59,8 +56,6 @@ router.post('/shorten', async(req, res) => {
 
                 // create the short url
                 const shortUrl = baseUrl + '/' + urlId
-
-                longUrl = constLongUrl
 
                 // invoking the Url model (from model.js) and saving to the DB
                 url = new Url({
