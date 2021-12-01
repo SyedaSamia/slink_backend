@@ -41,7 +41,7 @@ router.post('/shorten', async(req, res) => {
 
             let longUrl2 = longUrl.replace(/^(?:https?:\/\/)?(?:www\.)?/, "");
 
-            let arr = ["https://www.", "https://", "http://www.", "www."];
+            let arr = ["https://www.", "https://", "http://www."];
 
             let url;
 
