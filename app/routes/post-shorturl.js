@@ -50,6 +50,8 @@ router.post('/shorten', async(req, res) => {
             for(let i = 0; i < arr.length; i++){
                  longUrl = arr[i] + baseLongUrl
 
+                 console.log("XYZ " + longUrl )
+
                 // check whether the longUrl is already stored in database
                url = await Url.findOne({
                 longUrl
