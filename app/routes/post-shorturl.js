@@ -39,26 +39,14 @@ router.post('/shorten', async(req, res) => {
         console.log('Posting shorturl to db')
         try {
 
-            let constLongUrl = longUrl
+            // let constLongUrl = longUrl
 
-            let baseLongUrl = longUrl.replace(/^(?:https?:\/\/)?(?:www\.)?/, "");
+            // let baseLongUrl = longUrl.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
 
-            let arr = ["https://www.", "https://", "http://www.", "http."];
-
-            let url;
-
-            for(let i = 0; i < arr.length; i++){
-                 longUrl = arr[i] + baseLongUrl
-
-                 console.log("XYZ " + longUrl )
-
-                // check whether the longUrl is already stored in database
-               url = await Url.findOne({
+             // check whether the longUrl is already stored in database
+            let url = await Url.findOne({
                 longUrl
             })
-
-            }
-
 
             // if longUrl already exists then return the response,
             // also count the entry of that url
