@@ -56,6 +56,8 @@ router.post('/shorten', async(req, res) => {
                     longUrlWithProtocols
             })
 
+            console.log("XYZ url" + url)
+
             if(url)
             {
               // if longUrl already exists then return the response,
