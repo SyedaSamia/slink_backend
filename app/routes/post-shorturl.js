@@ -43,6 +43,8 @@ router.post('/shorten', async(req, res) => {
 
             let arr = ["https://www.", "https://", "http://www.", "http://"];
 
+            var urlExist = false
+
             var url ;
 
             for(let i = 0; i < arr.length; i++){
@@ -58,6 +60,7 @@ router.post('/shorten', async(req, res) => {
             {
               // if longUrl already exists then return the response,
              // also count the entry of that url
+             urlExist = true
              url.longUrlEntryCount++
                 await url.save()
                 res.json(url)
@@ -66,19 +69,21 @@ router.post('/shorten', async(req, res) => {
 
             }
 
-       // create the short url
-       const shortUrl = baseUrl + '/' + urlId
 
-       // invoking the Url model (from model.js) and saving to the DB
-       url = new Url({
-           urlId,
-           longUrl,
-           shortUrl
-       })
-       await url.save()
-       res.json(url)
+            if(urlExist == false){
+                 // create the short url
+                 const shortUrl = baseUrl + '/' + urlId
 
+                 // invoking the Url model (from model.js) and saving to the DB
+                url = new Url({
+                    urlId,
+                     longUrl,
+                    shortUrl
+               })
+                  await url.save()
+                  res.json(url)
 
+            }
 
 
 
