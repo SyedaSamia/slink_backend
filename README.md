@@ -1,7 +1,9 @@
 # SLINK URL Shortener Backend
 
 This is the backend for the URL Shortener service 'Slink'. The backend is done in ExpressJS and the database is MongoDB NoSQL DB.
+
 The demo is available at https://s-link.netlify.app/. 
+
 The implementation for the frontend can be found here https://github.com/SyedaSamia/slink_frontend
 
 ![Screenshot](/images/slink.png)
