@@ -48,39 +48,40 @@ router.post('/shorten', async(req, res) => {
             for(let i = 0; i < arr.length; i++){
                 var longUrlWithProtocols = arr[i] + baseLongUrl
 
-                console.log("XYZ" + longUrlWithProtocols)
+                console.log("XYZ " + longUrlWithProtocols)
                 // check whether the longUrl is already stored in database
                 url = await Url.findOne({
                     longUrlWithProtocols
             })
 
-            }
-
-        //    let url = await Url.findOne({
-        //         longUrl})
-
-            // if longUrl already exists then return the response,
-            // also count the entry of that url
-            if(url) {
-                url.longUrlEntryCount++
+            if(url)
+            {
+              // if longUrl already exists then return the response,
+             // also count the entry of that url
+             url.longUrlEntryCount++
                 await url.save()
                 res.json(url)
-            }
-            else {
-
-                // create the short url
-                const shortUrl = baseUrl + '/' + urlId
-
-                // invoking the Url model (from model.js) and saving to the DB
-                url = new Url({
-                    urlId,
-                    longUrl,
-                    shortUrl
-                })
-                await url.save()
-                res.json(url)
+                break;
+             }
 
             }
+
+       // create the short url
+       const shortUrl = baseUrl + '/' + urlId
+
+       // invoking the Url model (from model.js) and saving to the DB
+       url = new Url({
+           urlId,
+           longUrl,
+           shortUrl
+       })
+       await url.save()
+       res.json(url)
+
+
+
+
+
         }
         catch (err) {
             console.log(res)
