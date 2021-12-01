@@ -39,56 +39,49 @@ router.post('/shorten', async(req, res) => {
         console.log('Posting shorturl to db')
         try {
 
-          let baseLongUrl = longUrl.replace(/^(?:https?:\/\/)?(?:www\.)?/, "");
+            let constLongUrl = longUrl
 
-            let arr = ["https://www.", "https://", "http://www.", "http://"];
+            let baseLongUrl = longUrl.replace(/^(?:https?:\/\/)?(?:www\.)?/, "");
 
-            var urlExist = false
+            let arr = ["https://www.", "https://", "http://www.", "http."];
 
-            var url ;
+            let url;
 
             for(let i = 0; i < arr.length; i++){
-                var longUrlWithProtocols = arr[i] + baseLongUrl
+                 longUrl = arr[i] + baseLongUrl
 
-                console.log("XYZ " + longUrlWithProtocols)
                 // check whether the longUrl is already stored in database
-                url = await Url.findOne({
-                    longUrlWithProtocols
+               url = await Url.findOne({
+                longUrl
             })
 
-            console.log("XYZ url" + url)
+            }
 
-            if(url)
-            {
-              // if longUrl already exists then return the response,
-             // also count the entry of that url
-             urlExist = true
-             url.longUrlEntryCount++
+
+            // if longUrl already exists then return the response,
+            // also count the entry of that url
+            if(url) {
+                url.longUrlEntryCount++
                 await url.save()
                 res.json(url)
-                break;
-             }
-
             }
+            else {
 
+                // create the short url
+                const shortUrl = baseUrl + '/' + urlId
 
-            if(urlExist == false){
-                 // create the short url
-                 const shortUrl = baseUrl + '/' + urlId
+                longUrl = constLongUrl
 
-                 // invoking the Url model (from model.js) and saving to the DB
+                // invoking the Url model (from model.js) and saving to the DB
                 url = new Url({
                     urlId,
-                     longUrl,
+                    longUrl,
                     shortUrl
-               })
-                  await url.save()
-                  res.json(url)
+                })
+                await url.save()
+                res.json(url)
 
             }
-
-
-
         }
         catch (err) {
             console.log(res)
